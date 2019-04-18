@@ -7,6 +7,6 @@ module.exports = {
   coverageReporters: ['json', 'lcov', 'text', 'clover'],
   verbose: true,
   moduleNameMapper: {
-    '\\(css|sass|scss)$': '<rootDir>/__tests__/__mocks__/stylesMock.js'
+    '\\.(css|sass|scss)$': '<rootDir>/__tests__/__mocks__/stylesMock.js'
   }
 };
