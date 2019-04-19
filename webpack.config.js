@@ -1,15 +1,16 @@
 const path = require('path');
 const HtmlWebPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/index.jsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'index.js'
+    filename: 'index.js',
   },
   module: {
     rules: [
-      { test: /\.(js|jsx)$/, use: 'babel-loader' },
+      { test: /\.(js|jsx)$/, use: 'babel-loader', exclude: /node_modules/ },
       {
         test: /\.(sc|c)ss$/,
         use: [
@@ -20,23 +21,30 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               sourceMap: true,
-              sourceMapContents: false
-            }
-          }
-        ]
-      }
-    ]
+              sourceMapContents: false,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ['file-loader'],
+      },
+    ],
   },
   mode: 'development',
   plugins: [
     new HtmlWebPlugin({ template: './public/index.html' }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
-      chunkFilename: '[id].css'
-    })
+      chunkFilename: '[id].css',
+    }),
   ],
   devServer: {
     historyApiFallback: true,
-    port: 3000
-  }
+    port: 3000,
+  },
+  resolve: {
+    extensions: ['*', '.js', '.jsx'],
+  },
 };

@@ -1,0 +1,11 @@
+label {
+  color: #000;
+  input[type='text'],
+  input[type='email'],
+  input[type='password'] {
+    color: #000;
+    &:focus {
+      outline: none;
+    }
+  }
+}
