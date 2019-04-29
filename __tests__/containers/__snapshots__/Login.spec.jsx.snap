@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login component component rendered should match the snapshot 1`] = `
+<div
+  id="login"
+>
+  <form>
+    <SimpleInput
+      id=""
+      label="Email"
+      name="email"
+      onChange={[Function]}
+      placeholder="Email"
+      type="email"
+      value=""
+    />
+    <SimpleInput
+      id=""
+      label="Password"
+      name="password"
+      onChange={[Function]}
+      placeholder="Password"
+      type="password"
+      value=""
+    />
+    <SimpleButton
+      disabled={false}
+      onClick={[Function]}
+      title="Login"
+    />
+  </form>
+</div>
+`;

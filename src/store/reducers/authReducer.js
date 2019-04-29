@@ -1,7 +1,14 @@
-import { AUTH_INPUT_CHANGE, AUTH_SUBMITTING } from '../actions/types';
+import {
+  AUTH_INPUT_CHANGE,
+  AUTH_SUBMITTING,
+  AUTH_FAILED,
+  AUTH_SUCCESS,
+} from '../actions/types';
 
 const INITIAL_STATUS = {
   isSubmitting: false,
+  message: '',
+  isSuccess: false,
 };
 
 export default (state = INITIAL_STATUS, action) => {
@@ -16,6 +23,20 @@ export default (state = INITIAL_STATUS, action) => {
     return {
       ...state,
       isSubmitting: true,
+    };
+  case AUTH_FAILED:
+    return {
+      ...state,
+      message: payload,
+      isSubmitting: false,
+      isSuccess: false,
+    };
+  case AUTH_SUCCESS:
+    return {
+      ...state,
+      message: payload,
+      isSubmitting: false,
+      isSuccess: false,
     };
   default:
     return state;

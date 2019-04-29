@@ -1,6 +1,6 @@
 module.exports = {
   setupFiles: ['<rootDir>/__tests__/enzyme.config.js'],
-  moduleFileExtensions: ['js', 'jsx'],
+  moduleFileExtensions: ['jsx', 'js'],
   coverageDirectory: 'coverage',
   testMatch: ['**/?(*.)+(spec).js?(x)'],
   collectCoverage: true,
@@ -8,5 +8,6 @@ module.exports = {
   verbose: true,
   moduleNameMapper: {
     '\\.(css|sass|scss)$': '<rootDir>/__tests__/__mocks__/stylesMock.js',
+    '\\.(svg|jpg|gif)$': '<rootDir>/__tests__/__mocks__/assetsMock.js',
   },
 };

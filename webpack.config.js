@@ -6,6 +6,7 @@ module.exports = {
   entry: './src/index.jsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
     filename: 'index.js',
   },
   module: {
@@ -46,5 +47,8 @@ module.exports = {
   },
   resolve: {
     extensions: ['*', '.js', '.jsx'],
+  },
+  node: {
+    fs: 'empty',
   },
 };

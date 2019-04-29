@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Simple Input should match the snapshot 1`] = `
+<label
+  htmlFor="inputEmail4"
+>
+  Something
+  <input
+    className="form-control"
+    id=""
+    name="something"
+    onChange={[MockFunction]}
+    placeholder="Something"
+    type="text"
+    value="hello world"
+  />
+</label>
+`;

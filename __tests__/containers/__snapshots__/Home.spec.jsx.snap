@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home container should match the snapshot 1`] = `
+<div
+  id="home"
+>
+  <NavBar />
+  <div
+    className="container"
+  >
+    <div
+      className="row justify-content-md-center"
+    >
+      <div
+        className="col col-md-10"
+      >
+        <ArticleCard />
+      </div>
+      <div
+        className="col col-md-2"
+      >
+        <h2>
+          Hello world
+        </h2>
+      </div>
+    </div>
+  </div>
+  <Footer />
+</div>
+`;

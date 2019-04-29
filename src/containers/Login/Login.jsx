@@ -6,7 +6,7 @@ import './login.scss';
 import SimpleButton from '../../components/Buttons/SimpleButton';
 import { handleOnChange, handleLogin } from '../../store/actions/auth';
 
-class Login extends Component {
+export class Login extends Component {
   state = {};
 
   handleSubmit = () => {
@@ -57,11 +57,15 @@ Login.propTypes = {
   password: PropTypes.string,
   isSubmitting: PropTypes.bool,
   handleLogin: PropTypes.func.isRequired,
+  isSuccess: PropTypes.func.bool,
+  message: PropTypes.string,
 };
 Login.defaultProps = {
   email: '',
   password: '',
   isSubmitting: false,
+  isSuccess: false,
+  message: '',
 };
 const mapStateToProps = (state) => {
   const { auth } = state;

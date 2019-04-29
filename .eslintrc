@@ -16,6 +16,7 @@
   },
   "plugins": ["react"],
   "rules": {
+    "import/no-named-as-default": "off",
     "indent": ["error", 2],
     "max-len": ["error", 80],
     "linebreak-style": ["error", "unix"],

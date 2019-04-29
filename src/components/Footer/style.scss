@@ -1,0 +1,29 @@
+.footer {
+  background-color: #007bff;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 15px;
+  bottom: 0px;
+  position: fixed;
+  width: 100%;
+  .contact {
+    ul {
+      list-style: none;
+      li {
+        padding-top: 5px;
+      }
+    }
+  }
+  .copyright {
+    text-align: center;
+  }
+  h3 {
+    font-size: 18px;
+  }
+  p {
+    font-size: 12px;
+  }
+}
