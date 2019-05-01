@@ -1,3 +1,4 @@
+import '@babel/polyfill';
 import {
   AUTH_INPUT_CHANGE,
   AUTH_SUBMITTING,
@@ -11,23 +12,30 @@ export const handleOnChange = (name, value) => ({
   payload: { name, value },
 });
 
-export const handleLogin = () => async (dispatch) => {
+export const handleLogin = (
+  { email, password },
+  callback,
+) => async (dispatch) => {
   dispatch({
     type: AUTH_SUBMITTING,
   });
   try {
-    const response = await axios.post(`${process.env.BASE_URL}/users`);
+    const response = await axios.post('/users/login', {
+      email,
+      password,
+    });
     const { token, message } = response.data;
     await localStorage.setItem('token', token);
     dispatch({
       type: AUTH_SUCCESS,
       payload: message,
     });
+    callback();
   } catch (error) {
-    const { message } = error.response.data;
+    const { message, errors } = error.response.data;
     dispatch({
       type: AUTH_FAILED,
-      payload: message,
+      payload: { message, errors },
     });
   }
 };

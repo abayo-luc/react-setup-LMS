@@ -10,8 +10,13 @@ export class Login extends Component {
   state = {};
 
   handleSubmit = () => {
-    const { handleLogin: sendCredential, email, password } = this.props;
-    sendCredential({ email, password });
+    const {
+      handleLogin: sendCredential,
+      email,
+      password,
+      history,
+    } = this.props;
+    sendCredential({ email, password }, () => history.push('/'));
   };
 
   render() {
@@ -20,6 +25,7 @@ export class Login extends Component {
       email,
       password,
       isSubmitting,
+      errors,
     } = this.props;
     return (
       <div id="login">
@@ -40,6 +46,13 @@ export class Login extends Component {
             value={password}
             onChange={e => handleOnChangeText(e.target.name, e.target.value)}
           />
+          {errors.message ? (
+            <div className="invalid-feedback" data-test="error">
+              {errors.message}
+            </div>
+          ) : (
+            ''
+          )}
           <SimpleButton
             title="Login"
             onClick={this.handleSubmit}
@@ -57,17 +70,19 @@ Login.propTypes = {
   password: PropTypes.string,
   isSubmitting: PropTypes.bool,
   handleLogin: PropTypes.func.isRequired,
-  isSuccess: PropTypes.func.bool,
-  message: PropTypes.string,
+  errors: PropTypes.shape({
+    message: PropTypes.string,
+  }).isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
 };
 Login.defaultProps = {
   email: '',
   password: '',
   isSubmitting: false,
-  isSuccess: false,
-  message: '',
 };
-const mapStateToProps = (state) => {
+export const mapStateToProps = (state) => {
   const { auth } = state;
   return {
     ...auth,

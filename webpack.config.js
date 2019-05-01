@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: './src/index.jsx',
@@ -35,6 +36,7 @@ module.exports = {
   },
   mode: 'development',
   plugins: [
+    new Dotenv(),
     new HtmlWebPlugin({ template: './public/index.html' }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
@@ -43,7 +45,7 @@ module.exports = {
   ],
   devServer: {
     historyApiFallback: true,
-    port: 3000,
+    port: 8000,
   },
   resolve: {
     extensions: ['*', '.js', '.jsx'],

@@ -7,8 +7,8 @@ import {
 
 const INITIAL_STATUS = {
   isSubmitting: false,
-  message: '',
   isSuccess: false,
+  errors: {},
 };
 
 export default (state = INITIAL_STATUS, action) => {
@@ -17,6 +17,7 @@ export default (state = INITIAL_STATUS, action) => {
   case AUTH_INPUT_CHANGE:
     return {
       ...state,
+      errors: {},
       [payload.name]: payload.value,
     };
   case AUTH_SUBMITTING:
@@ -27,14 +28,13 @@ export default (state = INITIAL_STATUS, action) => {
   case AUTH_FAILED:
     return {
       ...state,
-      message: payload,
       isSubmitting: false,
+      errors: { ...state.errors, ...payload },
       isSuccess: false,
     };
   case AUTH_SUCCESS:
     return {
       ...state,
-      message: payload,
       isSubmitting: false,
       isSuccess: false,
     };
