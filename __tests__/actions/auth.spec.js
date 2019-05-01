@@ -24,6 +24,7 @@ describe('Authentication action creator', () => {
 
   afterEach(() => {
     moxios.uninstall(axios);
+    callback.mockClear();
   });
   test('should create action to handle text input change', () => {
     const payload = { name: 'email', value: 'luc.bayo@gmail.com' };
@@ -54,6 +55,7 @@ describe('Authentication action creator', () => {
     store = mockStore({});
     return store.dispatch(actions.handleLogin(payload, callback)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
+      expect(callback).toHaveBeenCalled();
       done();
     });
   });
@@ -73,6 +75,7 @@ describe('Authentication action creator', () => {
     store = mockStore({});
     return store.dispatch(actions.handleLogin(payload, callback)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
+      expect(callback).not.toHaveBeenCalled();
       done();
     });
   });
