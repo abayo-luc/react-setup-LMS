@@ -6,7 +6,7 @@ import SubNav from './SubNav';
 const icon = require('../../assets/icons/lines.svg');
 
 const NavBar = () => (
-  <div>
+  <div className="full-nav">
     <div id="nav">
       <div className="menu">
         <img src={icon} alt="-" />

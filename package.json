@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest --coverage",
     "test:watch": "yarn test --watchAll",
-    "start": "webpack-dev-server --open --hot"
+    "start": "webpack-dev-server --open --hot",
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "prop-types": "^15.7.2",
+    "query-string": "^6.5.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.2",

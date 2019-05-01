@@ -26,9 +26,6 @@ export class Home extends Component {
                 <ArticleCard key={key} item={articles[key]} />
               ))}
             </div>
-            <div className="col col-md-2">
-              <h2>Hello world</h2>
-            </div>
           </div>
         </div>
         <Footer />

@@ -1,26 +1,47 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import queryString from 'query-string';
+import { Link, withRouter } from 'react-router-dom';
 
-const SubNav = () => (
-  <div id="sub-nav">
-    <div className="nav-links">
-      <ul className="links">
-        {[
-          'Economic',
-          'Culture',
-          'Tech',
-          'Politics',
-          'Health',
-          'Science',
-          'Art',
-        ].map((text, index) => (
-          <li key={`${index + 1}-${text.slice(1, 3)}`}>
-            <Link to="/">{text}</Link>
-          </li>
-        ))}
-      </ul>
+const SubNav = ({ history }) => {
+  const { location } = history;
+  const { category: queryCategory } = queryString.parse(location.search);
+  return (
+    <div id="sub-nav">
+      <div className="nav-links">
+        <ul className="links">
+          {[
+            'Economic',
+            'Culture',
+            'Tech',
+            'Politics',
+            'Health',
+            'Science',
+            'Art',
+          ].map((category, index) => (
+            <li key={Number(index)}>
+              <Link
+                to={`/articles?category=${category}`}
+                className={category === queryCategory ? 'active' : ''}
+              >
+                {category}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
-  </div>
-);
+  );
+};
+SubNav.propTypes = {
+  history: PropTypes.shape({
+    location: PropTypes.string,
+  }),
+};
 
-export default SubNav;
+SubNav.propTypes = {
+  history: {
+    location: '',
+  },
+};
+export default withRouter(SubNav);
