@@ -14,13 +14,6 @@ exports[`Home container should match the snapshot 1`] = `
       <div
         className="col col-md-10"
       />
-      <div
-        className="col col-md-2"
-      >
-        <h2>
-          Hello world
-        </h2>
-      </div>
     </div>
   </div>
   <Footer />

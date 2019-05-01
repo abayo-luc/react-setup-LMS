@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NavBar Component should match the snapshot 1`] = `
-<div>
+<div
+  className="full-nav"
+>
   <div
     id="nav"
   >
@@ -46,6 +48,6 @@ exports[`NavBar Component should match the snapshot 1`] = `
       </ul>
     </div>
   </div>
-  <SubNav />
+  <withRouter(SubNav) />
 </div>
 `;
