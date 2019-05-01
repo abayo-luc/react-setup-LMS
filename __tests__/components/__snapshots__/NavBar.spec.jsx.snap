@@ -27,13 +27,21 @@ exports[`NavBar Component should match the snapshot 1`] = `
         className="links"
       >
         <li>
-          Home
+          <Link
+            to="/"
+          >
+            Home
+          </Link>
         </li>
         <li>
           About
         </li>
         <li>
-          Team
+          <Link
+            to="/login"
+          >
+            Login
+          </Link>
         </li>
       </ul>
     </div>

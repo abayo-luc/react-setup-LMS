@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './style.scss';
 import SubNav from './SubNav';
 
@@ -15,9 +16,13 @@ const NavBar = () => (
       </div>
       <div className="nav-links">
         <ul className="links">
-          <li>Home</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
           <li>About</li>
-          <li>Team</li>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
         </ul>
       </div>
     </div>

@@ -9,6 +9,7 @@ const INITIAL_STATUS = {
   isSubmitting: false,
   isSuccess: false,
   errors: {},
+  currentUser: {},
 };
 
 export default (state = INITIAL_STATUS, action) => {
@@ -37,6 +38,7 @@ export default (state = INITIAL_STATUS, action) => {
       ...state,
       isSubmitting: false,
       isSuccess: false,
+      currentUser: { ...payload.user },
     };
   default:
     return state;
